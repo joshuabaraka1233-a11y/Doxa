@@ -28,17 +28,19 @@ const modeInfo={
 };
 
 function Figure(){
- return <div className="planet-art" aria-hidden="true"><svg viewBox="0 0 620 620" className="earth-svg">
-  <defs><radialGradient id="ocean" cx="36%" cy="28%"><stop offset="0" stopColor="#2de4e8"/><stop offset=".3" stopColor="#118acb"/><stop offset=".7" stopColor="#07549c"/><stop offset="1" stopColor="#031b50"/></radialGradient><linearGradient id="land" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#9ee95d"/><stop offset=".45" stopColor="#21a84c"/><stop offset="1" stopColor="#08723d"/></linearGradient><linearGradient id="land2" x1="1" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#d0ee65"/><stop offset=".5" stopColor="#38b94d"/><stop offset="1" stopColor="#087b56"/></linearGradient><filter id="blur12"><feGaussianBlur stdDeviation="12"/></filter><clipPath id="earthClip"><circle cx="310" cy="310" r="245"/></clipPath></defs>
-  <circle cx="310" cy="310" r="260" fill="#22dce4" opacity=".13" filter="url(#blur12)"/><circle cx="310" cy="310" r="249" fill="url(#ocean)"/>
-  <g clipPath="url(#earthClip)">
-   <path className="land land-a" d="M92 183 C126 119 181 104 227 128 C247 139 261 166 247 189 C228 220 193 215 177 240 C157 270 119 251 105 226 C94 208 88 198 92 183Z" fill="url(#land)"/><path className="land land-b" d="M310 89 C354 68 415 85 441 119 C459 143 451 173 425 184 C402 193 391 218 359 222 C328 226 300 204 294 178 C289 147 287 106 310 89Z" fill="url(#land2)"/><path className="land land-c" d="M419 244 C463 222 512 244 533 282 C547 308 527 334 498 337 C472 340 456 365 428 354 C402 343 391 314 397 288 C401 271 405 253 419 244Z" fill="url(#land)"/><path className="land land-d" d="M190 315 C219 286 259 291 279 320 C296 345 287 379 266 397 C247 414 244 449 214 451 C183 453 162 424 166 393 C169 362 171 335 190 315Z" fill="url(#land2)"/><path className="land land-e" d="M324 388 C356 359 401 366 421 394 C440 421 431 454 403 468 C379 480 359 510 329 499 C297 488 290 449 298 425 C303 409 311 399 324 388Z" fill="url(#land)"/>
-   <g className="cloud-cloud cloud-1"><path d="M42 260 C95 215 141 231 160 263 C185 247 220 253 229 282 C244 320 195 334 151 321 C105 343 53 322 42 292 C35 279 35 269 42 260Z" fill="#b9fff4" opacity=".78"/></g>
-   <g className="cloud-cloud cloud-2"><path d="M285 246 C330 213 366 225 382 252 C410 233 448 246 452 276 C458 310 420 322 384 309 C350 332 305 314 296 287 C287 274 281 259 285 246Z" fill="#c5fff5" opacity=".72"/></g>
-   <g className="cloud-cloud cloud-3"><path d="M150 458 C187 425 228 434 242 462 C266 446 302 456 309 484 C315 517 280 529 247 518 C214 538 172 524 162 498 C150 489 146 472 150 458Z" fill="#7ff1e6" opacity=".72"/></g>
-   <g className="swirl-lines" fill="none" strokeLinecap="round"><path d="M61 163 C170 72 305 96 348 178 C382 244 324 296 241 283 C154 269 121 333 186 382 C258 436 370 414 444 352" stroke="#76fff0" strokeWidth="13" opacity=".34"/><path d="M71 386 C142 329 218 348 244 404 C267 453 339 478 407 438 C452 411 488 373 520 385" stroke="#44e9e2" strokeWidth="10" opacity=".4"/></g>
-  </g><circle cx="310" cy="310" r="253" fill="none" stroke="#38dce8" strokeWidth="2" opacity=".65"/></svg>
-  <span className="planet-star s1"/><span className="planet-star s2"/><span className="planet-star s3"/>
+ return <div className="network-art" aria-hidden="true">
+   <div className="network-grid"/>
+   <div className="network-orbit orbit-a"/><div className="network-orbit orbit-b"/><div className="network-orbit orbit-c"/>
+   <div className="network-core"><span className="core-ring"/><strong>DOXA</strong><small>CONNECTING ACTION</small></div>
+   <div className="network-line line-a"/><div className="network-line line-b"/><div className="network-line line-c"/><div className="network-line line-d"/>
+   <div className="network-node node-a"><b>WATER</b><span>18</span></div>
+   <div className="network-node node-b"><b>EDUCATION</b><span>07</span></div>
+   <div className="network-node node-c"><b>FOOD</b><span>24</span></div>
+   <div className="network-node node-d"><b>RESOURCES</b><span>15</span></div>
+   <div className="network-node node-e"><b>PEOPLE</b><span>54</span></div>
+   <div className="network-pulse pulse-a"/><div className="network-pulse pulse-b"/><div className="network-pulse pulse-c"/>
+   <div className="network-label label-top">LIVE PROBLEM NETWORK <i/></div>
+   <div className="network-label label-bottom">PROBLEMS <span/> PEOPLE <span/> RESOURCES <span/> ACTION</div>
  </div>
 }
 
@@ -58,7 +60,7 @@ export default function Home(){
   <header className="topbar"><button className="brand" onClick={()=>go("home")}><span className="brand-mark"><i/><i/></span><strong>DOXA</strong></button><nav>{(["solve","swap","city"] as Mode[]).map(item=><button key={item} className={mode===item?"active":""} onClick={()=>changeMode(item)}>{item==="city"?"MYCITY":item.toUpperCase()}</button>)}</nav><div className="top-right"><span className="live"><i/> LIVE</span><button className="menu-button" onClick={()=>setShowMenu(true)}>MENU <b>↗</b></button></div></header>
 
   <section id="home" className="hero"><div className="hero-copy"><div className="eyebrow"><span/> GLOBAL PROBLEM-SOLVING NETWORK</div><h1>MAKE<br/><em>CHANGE</em><br/>REAL.</h1><p>{modeInfo[mode].desc}</p><div className="search-line"><span>↳</span><input value={query} onChange={e=>setQuery(e.target.value)} onKeyDown={e=>e.key==="Enter"&&ask()} placeholder={mode==="solve"?"Search a problem...":mode==="swap"?"Find something to swap...":"Find a local problem..."}/><button onClick={ask}>→</button></div><button className="post-link" onClick={()=>setShowCreate(true)}>POST A PROBLEM <span>+</span></button></div>
-   <div className="art-card"><div className="art-label top"><span>DOXA / {modeInfo[mode].label}</span><span>01 — 06</span></div><div className="red-disc"/><div className="halo"/><Figure/>{cities.map((city,i)=><button key={city.name} className={"city-pin pin-"+i} style={{left:city.x+"%",top:city.y+"%"}} onClick={()=>{const match=problems.find(p=>p.location===city.name);if(match){setSelected(match);go("explore")}else notify(city.label)}}><span/><b>{city.name}</b></button>)}<div className="art-copy"><strong>{modeInfo[mode].label}</strong><span>06 CITIES · {filtered.length.toString().padStart(2,"0")} MATCHES</span></div><div className="art-scroll">SCROLL <b>↓</b></div></div>
+   <div className="art-card"><div className="art-label top"><span>DOXA / {modeInfo[mode].label}</span><span>01 — 06</span></div><Figure/>{cities.map((city,i)=><button key={city.name} className={"city-pin pin-"+i} style={{left:city.x+"%",top:city.y+"%"}} onClick={()=>{const match=problems.find(p=>p.location===city.name);if(match){setSelected(match);go("explore")}else notify(city.label)}}><span/><b>{city.name}</b></button>)}<div className="art-copy"><strong>{modeInfo[mode].label}</strong><span>06 CITIES · {filtered.length.toString().padStart(2,"0")} MATCHES</span></div><div className="art-scroll">SCROLL <b>↓</b></div></div>
   </section>
 
   <section className="intro-band"><div><span>02</span><h2>ONE PROBLEM.<br/><em>ONE ACTION PATH.</em></h2></div><p>DOXA turns scattered good intentions into a visible chain of people, resources and action. Explore what is happening, choose how you can help, and watch progress move.</p><button onClick={()=>go("how")}>HOW IT WORKS <b>↓</b></button></section>
