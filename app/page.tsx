@@ -72,12 +72,12 @@ export default function Home(){
 
   <section className="world" aria-label="DOXA living world">
    <div className="orbit orbit-a"/><div className="orbit orbit-b"/>
-   <div className="globe">
+   <div className="globe"><div className="atmosphere"/><div className="ocean-texture"/><div className="clouds"/>
     <div className="globe-grid grid-a"/><div className="globe-grid grid-b"/>
-    <div className="land land-a"/><div className="land land-b"/><div className="land land-c"/><div className="glow"/>
+    <div className="land land-a"/><div className="land land-b"/><div className="land land-c"/><div className="land land-d"/><div className="glow"/><div className="route route-one"><i/></div><div className="route route-two"><i/></div><div className="route route-three"><i/></div>
     {cities.map((city,index)=><button key={city.name} className={"world-pin pin-"+index+" pin-"+city.color} style={{left:city.x+"%",top:city.y+"%"}} onClick={()=>{const match=problems.find(p=>p.location===city.name);if(match)setSelected(match);else notify(city.label)}}><span className="pulse"/><b>{city.name}</b><small>{city.label}</small></button>)}
    </div>
-   <div className="world-info"><strong>LIVE WORLD</strong><span>Explore problems by location</span></div>
+   <div className="world-particles"><i/><i/><i/><i/><i/><i/></div><div className="world-info"><strong>LIVE WORLD</strong><span>Explore problems by location</span></div>
   </section>
 
   <aside className="signal-rail">
