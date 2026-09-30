@@ -35,3 +35,105 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:28px
 @media(prefers-reduced-motion:reduce){
  .intro-band,.workspace,.how,.activity-section,.impact,.problem-card,.step,.activity-feed,.impact-board,.hero-copy,.art-card{animation:none!important}
 }
+
+/* =========================================================
+   DOXA PREMIUM EXPERIENCE — Claude-inspired scroll system
+   ========================================================= */
+.doxa{overflow:visible;background:#050d10;color:#f4fbf9}
+.hero-scroll{position:relative;height:480vh;z-index:2}
+.hero-stage{position:sticky;top:82px;height:calc(100vh - 82px);min-height:620px;display:flex;align-items:center}
+.hero{width:100%;height:100%;min-height:0;padding:5vh 5.5vw;display:grid;grid-template-columns:39% 61%;gap:2vw;align-items:center}
+.hero-copy{align-self:center;position:relative;z-index:20;max-width:520px}
+.hero h1{font-size:clamp(72px,8.4vw,136px);line-height:.77;letter-spacing:-10px;text-shadow:0 20px 80px #0009}
+.hero h1 em{color:#5cf3dc;font-style:italic;text-shadow:0 0 40px #45e9d522}
+.eyebrow span{background:#67f2dc}
+.art-card{height:min(78vh,760px);min-height:520px;width:100%;background:linear-gradient(145deg,#0b1c22,#061116 72%);border:1px solid #78d8d11c;border-radius:28px;box-shadow:0 50px 150px #000b,inset 0 1px #ffffff0d;overflow:hidden}
+.art-card:before{background:radial-gradient(circle at 50% 48%,#21d7c314,transparent 35%),linear-gradient(120deg,#ffffff06,transparent 42%)}
+.hero-progress{position:absolute;right:2.3vw;top:50%;transform:translateY(-50%);height:180px;width:3px;background:#ffffff16;border-radius:99px;z-index:30;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
+.hero-progress i{position:absolute;left:0;top:0;width:100%;height:0;background:linear-gradient(#b9fff4,#52e8d5);border-radius:99px;box-shadow:0 0 14px #55e9d766}
+.hero-progress span{position:relative;transform:translateX(15px);font:500 7px 'DM Mono',monospace;color:#6d8582}
+.hero-progress span:nth-of-type(1){top:-3px}.hero-progress span:nth-of-type(2){top:0}.hero-progress span:nth-of-type(3){bottom:-3px}
+.chapter-card{position:absolute;z-index:25;left:28px;bottom:28px;width:min(290px,44%);padding:18px 19px;border:1px solid #9be9df22;border-radius:15px;background:#06161ad9;backdrop-filter:blur(18px);box-shadow:0 18px 50px #0008;animation:chapterFloat 4s ease-in-out infinite}
+.chapter-card span{display:block;color:#5fdccf;font:500 6px 'DM Mono',monospace;letter-spacing:1.7px;margin-bottom:11px}
+.chapter-card strong{display:block;font-size:13px;letter-spacing:-.2px}
+.chapter-card p{margin:7px 0 0;color:#78928f;font-size:9px;line-height:1.5}
+@keyframes chapterFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+
+/* premium dot-matrix Earth */
+.globe-stage{position:absolute;inset:0;overflow:hidden;background:radial-gradient(circle at 52% 48%,#0c3940 0,#061b22 30%,#040e13 67%,#02080b 100%)}
+.globe-stage:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 25%,#6affec08 45%,transparent 65%),radial-gradient(circle at 30% 25%,#7affef0a,transparent 28%);animation:globeLightSweep 9s ease-in-out infinite}
+.globe-stars{position:absolute;inset:0;opacity:.7;background-image:radial-gradient(#a8fff3 1px,transparent 1.5px),radial-gradient(#69d6ff .7px,transparent 1.2px);background-size:87px 93px,43px 57px;background-position:8px 12px,23px 31px;animation:starsDrift 18s linear infinite}
+.globe-halo{position:absolute;left:53%;top:50%;width:min(64%,650px);aspect-ratio:1;border-radius:50%;transform:translate(-50%,-50%);border:1px solid #6ef6e322;box-shadow:0 0 100px #35e4d51c,0 0 190px #3e9fff0d}
+.globe-wrap{position:absolute;left:53%;top:51%;width:min(70%,720px);aspect-ratio:1;transform-style:preserve-3d;transition:transform 1.2s cubic-bezier(.16,1,.3,1);filter:drop-shadow(0 40px 55px #000b)}
+.globe-sphere{position:absolute;inset:0;border-radius:50%;overflow:hidden;box-shadow:inset -70px -45px 90px #000b,inset 28px 25px 70px #75fff41c,0 0 90px #4be6d51c}
+.globe-sphere:after{content:"";position:absolute;inset:0;border-radius:50%;background:linear-gradient(105deg,#ffffff0d,transparent 35% 70%,#0009);pointer-events:none}
+.globe-svg{width:100%;height:100%;overflow:visible}
+.water-dot{fill:#65e8de;opacity:.42}
+.land-dot{fill:#c7ff82;opacity:.92;filter:drop-shadow(0 0 2px #a9ffad)}
+.continent{fill:#8fe99d;opacity:.15;stroke:#c6ffe522;stroke-width:.6}
+.globe-clouds{fill:#efffff18;filter:blur(.8px);animation:cloudBand 24s linear infinite}
+.globe-clouds ellipse:nth-child(2){animation:cloudBandReverse 31s linear infinite}
+.globe-arcs path{fill:none;stroke:#68f0df88;stroke-width:.55;stroke-dasharray:2 2;animation:arcDash 5s linear infinite}
+.globe-arcs path:nth-child(2){stroke:#b0a0ff88;animation-duration:7s}
+.globe-arcs path:nth-child(3){stroke:#ffc66d88;animation-duration:6s}
+.globe-lights circle{fill:#fff1ad;filter:drop-shadow(0 0 3px #ffd76b);animation:cityGlow 2s ease-in-out infinite}
+.globe-lights circle:nth-child(2){animation-delay:-.7s}.globe-lights circle:nth-child(3){animation-delay:-1.4s}
+.orbit-ring{position:absolute;inset:-8%;border:1px solid #6cebdc3d;border-radius:50%;transform:rotateX(67deg) rotateZ(-18deg);box-shadow:0 0 30px #5cebd71c;animation:orbitTilt 14s linear infinite}
+.orbit-ring:before{content:"";position:absolute;left:10%;top:-4px;width:7px;height:7px;border-radius:50%;background:#eaffd2;box-shadow:0 0 16px #b5ffd4}
+.orbit-ring i{position:absolute;right:17%;bottom:-3px;width:4px;height:4px;border-radius:50%;background:#6cf5e2;box-shadow:0 0 12px #6cf5e2}
+.globe-caption{position:absolute;right:28px;top:28px;display:flex;flex-direction:column;align-items:flex-end;gap:7px;z-index:20}
+.globe-caption span,.globe-side-note{font:500 6px 'DM Mono',monospace;letter-spacing:1.5px;color:#66817f}
+.globe-caption b{font-size:11px;letter-spacing:1px;color:#dffff9}
+.globe-side-note{position:absolute;right:28px;bottom:29px;color:#688480;z-index:20}
+.globe-side-note i{display:inline-block;width:15px;height:1px;background:#3d6965;margin:0 7px 3px}
+@keyframes globeLightSweep{0%,100%{transform:translateX(-4%);opacity:.6}50%{transform:translateX(5%);opacity:1}}
+@keyframes starsDrift{to{background-position:90px 100px,0 0}}
+@keyframes cloudBand{to{transform:translateX(8px) rotate(.8deg)}}
+@keyframes cloudBandReverse{to{transform:translateX(-12px) rotate(-.6deg)}}
+@keyframes arcDash{to{stroke-dashoffset:-30}}
+@keyframes cityGlow{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes orbitTilt{to{transform:rotateX(67deg) rotateZ(342deg)}}
+
+/* light mode */
+.doxa.light{background:#f5f7f3;color:#102322}
+.doxa.light:before{opacity:.04;background-image:radial-gradient(#0b302f .5px,transparent .6px)}
+.doxa.light .topbar{background:#f4f7f2e8;border-color:#102f2b18}
+.doxa.light .topbar nav button,.doxa.light .menu-button,.doxa.light .live{color:#68807b}
+.doxa.light .topbar nav button.active,.doxa.light .topbar nav button:hover{color:#102322}
+.doxa.light .brand{color:#102322}.doxa.light .brand-mark{background:#153f3b}.doxa.light .brand-mark i{background:#dff9ee}
+.doxa.light .hero h1{color:#112b2a;text-shadow:none}.doxa.light .hero h1 em{color:#087f72;text-shadow:none}
+.doxa.light .hero-copy>p{color:#60736f}.doxa.light .search-line{border-color:#5a777166}.doxa.light .search-line input{color:#18302f}.doxa.light .search-line button{background:#e1eeea;color:#123a37}
+.doxa.light .post-link{color:#496460}
+.doxa.light .art-card{background:#eef4ef;border-color:#0d34301c;box-shadow:0 40px 100px #193f3218}
+.doxa.light .globe-stage{background:radial-gradient(circle at 53% 48%,#c8f3e9 0,#edf5f0 36%,#f6f8f4 70%,#e9f0eb 100%)}
+.doxa.light .globe-stars{opacity:.18}.doxa.light .globe-halo{border-color:#159c8b3d;box-shadow:0 0 90px #2b9e8b18}.doxa.light .water-dot{fill:#168c89;opacity:.4}.doxa.light .land-dot{fill:#4e9a58;opacity:.9}.doxa.light .continent{fill:#4d9d62}.doxa.light .globe-sphere{box-shadow:inset -55px -35px 70px #173f3218,inset 20px 18px 50px #ffffff88,0 25px 70px #23554a18}
+.doxa.light .globe-caption span,.doxa.light .globe-side-note,.doxa.light .art-label,.doxa.light .art-copy span{color:#56706c}.doxa.light .globe-caption b{color:#173f3b}.doxa.light .chapter-card{background:#ffffffd9;border-color:#18534a20;box-shadow:0 20px 60px #1a4b3b18}.doxa.light .chapter-card strong{color:#173532}.doxa.light .chapter-card p{color:#71817e}
+.doxa.light .intro-band,.doxa.light .workspace,.doxa.light .how,.doxa.light .facts,.doxa.light .activity-section{border-color:#123c3617}
+.doxa.light h2{color:#163330}.doxa.light h2 em{color:#087f72}
+.doxa.light .intro-band p,.doxa.light .section-head>p,.doxa.light .impact-copy p{color:#647672}
+.doxa.light .mode-tabs button,.doxa.light .category-row button{background:#edf4ef;border-color:#c6d8d1;color:#607873}.doxa.light .mode-tabs button.active,.doxa.light .mode-tabs button:hover{background:#0d8376;color:#fff;border-color:#0d8376}
+.doxa.light .category-row button.active,.doxa.light .category-row button:hover{background:#d8eee8;color:#096f65;border-color:#72bcb0}
+.doxa.light .problem-card,.doxa.light .fact-grid article,.doxa.light .action-panel,.doxa.light .step,.doxa.light .activity-feed,.doxa.light .impact-board div{background:#ffffff;border-color:#c9dbd4;color:#163330}
+.doxa.light .problem-card:hover,.doxa.light .fact-grid article:hover{background:#f1f8f5;border-color:#69ad9f}.doxa.light .problem-main p,.doxa.light .fact-grid h3,.doxa.light .empty-card,.doxa.light .action-option small{color:#71817e}
+.doxa.light .problem-meta,.doxa.light .card-no,.doxa.light .step>span,.doxa.light .activity-feed span{color:#66807a}.doxa.light .problem-icon{background:#d9eee9;color:#087d72}.doxa.light .mini-progress{background:#dbe8e4}.doxa.light .action-panel{background:#edf5f2}.doxa.light .panel-top{color:#64817a}.doxa.light .action-option{border-color:#123c3612}.doxa.light .action-click:hover{background:#e1f0eb}.doxa.light .panel-button{background:#0d8376;color:#fff}
+.doxa.light .fact-grid b,.doxa.light .impact-board b{color:#173b36}.doxa.light .fact-grid a,.doxa.light .activity-feed i,.doxa.light .card-arrow{color:#0b8175}.doxa.light .fact-note{color:#71827e}
+.doxa.light footer{border-color:#123c3617;color:#6c7d79}.doxa.light footer .brand{color:#173330}.doxa.light footer button{color:#087f72}
+.theme-toggle{border:1px solid #ffffff18;background:#102a2d;color:#b8d0ca;border-radius:99px;padding:8px 10px;font:500 7px 'DM Mono',monospace;letter-spacing:1px}
+.theme-toggle span{font-size:10px;margin-right:4px;color:#74f0df}
+.doxa.light .theme-toggle{background:#e6efeb;border-color:#173f3b20;color:#47635e}.doxa.light .theme-toggle span{color:#0a8276}
+
+/* make the lower page feel like one continuous editorial surface */
+.intro-band,.workspace,.how,.activity-section,.impact,.facts{animation:sectionRise .9s cubic-bezier(.16,1,.3,1) both}
+.facts{scroll-margin-top:90px}
+@media(max-width:1050px){
+ .hero-stage{min-height:700px}.hero{grid-template-columns:1fr 1fr}.globe-wrap{width:min(78%,650px)}.globe-halo{width:min(72%,650px)}
+}
+@media(max-width:760px){
+ .hero-scroll{height:390vh}.hero-stage{top:72px;height:calc(100vh - 72px);min-height:640px}.hero{display:block;height:100%;padding:5vh 20px 35px}.hero-copy{padding-top:2vh}.hero h1{font-size:64px;letter-spacing:-6px;margin-bottom:20px}.hero-copy>p{max-width:330px}.art-card{height:56vh;min-height:350px;margin-top:25px;border-radius:22px}.globe-wrap{left:54%;top:53%;width:96vw;max-width:590px}.globe-halo{left:54%;top:53%;width:88vw}.chapter-card{left:15px;bottom:15px;width:70%;padding:14px}.chapter-card strong{font-size:11px}.globe-caption{right:15px;top:15px}.globe-side-note{right:15px;bottom:15px;font-size:5px}.hero-progress{right:9px;height:130px}.theme-toggle{display:none}
+}
+@media(max-width:480px){
+ .hero-scroll{height:360vh}.hero h1{font-size:53px;letter-spacing:-4px}.hero-copy>p{font-size:10px}.art-card{height:54vh;min-height:320px}.chapter-card{width:76%}.globe-wrap{width:112vw}.globe-halo{width:102vw}.globe-side-note{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+ .globe-stage:before,.globe-stars,.globe-clouds,.globe-arcs path,.globe-lights circle,.orbit-ring,.chapter-card{animation:none!important}
+}
