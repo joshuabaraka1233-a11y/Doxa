@@ -34,11 +34,13 @@ function Figure({progress=0}:{progress?:number}){
    const land=(nx>-0.05&&nx<0.55&&ny>-0.2&&ny<0.5)||(nx<-0.35&&nx>-0.8&&ny>-0.55&&ny<0.15)||(nx>0.25&&nx<0.75&&ny>-0.65&&ny<-0.2)||(nx<-0.1&&nx<0.35&&ny>0.25&&ny<0.72);
    return {x,y,inside,land};
  });
- const cityOffset=progress*360;
+ const cityOffset=progress<.34?progress*85:progress<.68?85+(progress-.34)*105:120+(progress-.68)*150;
+ const scale=1+progress*.32;
+ const shiftX=progress<.34?0:progress<.68?-5:-11;
  return <div className="globe-stage" aria-hidden="true">
    <div className="globe-stars"/>
    <div className="globe-halo"/>
-   <div className="globe-wrap" style={{transform:`translate(-50%,-50%) rotateY(${cityOffset}deg)`}}>
+   <div className="globe-wrap" style={{transform:`translate(calc(-50% + ${shiftX}vw),-50%) rotateY(${cityOffset}deg) scale(${scale})`}}>
     <div className="globe-sphere">
       <svg viewBox="0 0 100 100" className="globe-svg">
        <defs><radialGradient id="ocean" cx="32%" cy="28%"><stop offset="0%" stopColor="#48f0df"/><stop offset="38%" stopColor="#0b9a9b"/><stop offset="78%" stopColor="#07545f"/><stop offset="100%" stopColor="#031c27"/></radialGradient><filter id="glow"><feGaussianBlur stdDeviation="1.4"/></filter></defs>
@@ -57,7 +59,7 @@ function Figure({progress=0}:{progress?:number}){
     </div>
     <div className="orbit-ring"><i/></div>
    </div>
-   <div className="globe-caption"><span>LIVE EARTH / {Math.round(progress*100).toString().padStart(2,"0")}%</span><b>{progress<.34?"NAIROBI":progress<.68?"LONDON":"TOKYO"}</b></div>
+   <div className="globe-caption"><span>LIVE EARTH / {Math.round(progress*100).toString().padStart(2,"0")}%</span><b>{progress<.34?"NAIROBI":progress<.68?"LONDON":"TOKYO"}</b><small>{progress<.34?"PROBLEM POSTED":progress<.68?"RESOURCES FIND IT":"ACTION BECOMES PROOF"}</small></div>
    <div className="globe-side-note">PROBLEMS <i/> PEOPLE <i/> RESOURCES <i/> ACTION</div>
  </div>
 }
