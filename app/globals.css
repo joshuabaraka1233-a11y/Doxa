@@ -137,3 +137,39 @@ footer{position:relative;z-index:2;border-top:1px solid var(--line);padding:28px
 @media(prefers-reduced-motion:reduce){
  .globe-stage:before,.globe-stars,.globe-clouds,.globe-arcs path,.globe-lights circle,.orbit-ring,.chapter-card{animation:none!important}
 }
+
+/* Claude-reference composition pass */
+.hero-scroll{height:520vh}
+.hero-stage{top:82px;height:calc(100vh - 82px);overflow:hidden}
+.hero{grid-template-columns:42% 58%;padding:0 5.2vw;gap:1vw}
+.hero-copy{transform:translateY(-2vh)}
+.hero h1{font-family:Manrope,Arial,sans-serif;font-weight:800;font-size:clamp(78px,9.1vw,144px);line-height:.76;letter-spacing:-.105em}
+.hero h1 em{font-family:"Playfair Display",serif;font-weight:700;letter-spacing:-.06em}
+.art-card{height:84vh;min-height:560px;border-radius:0;border:none;background:transparent;box-shadow:none}
+.art-card:before{display:none}
+.globe-stage{background:radial-gradient(circle at 52% 48%,#123f43 0,#081c23 34%,#040c10 72%,#020608 100%)}
+.globe-wrap{left:54%;width:min(76%,780px)}
+.globe-halo{left:54%;width:min(70%,720px)}
+.globe-caption{top:11%;right:7%;text-align:right}
+.globe-caption small{font:500 6px "DM Mono",monospace;letter-spacing:1.5px;color:#63d9cc;margin-top:2px}
+.chapter-card{left:7%;bottom:11%;width:300px;padding:20px 21px;border-radius:2px}
+.art-label{left:7%;right:7%;top:7%;font-size:7px}
+.art-copy{left:7%;bottom:7%}
+.art-scroll{right:7%;bottom:7%}
+.hero-progress{right:1.7vw}
+.hero-scroll + .intro-band{padding-top:140px}
+.doxa.light .globe-stage{background:radial-gradient(circle at 53% 48%,#d7f3eb 0,#f2f7f4 40%,#f8faf7 72%,#e8efeb 100%)}
+.doxa.light .globe-wrap{filter:drop-shadow(0 35px 45px #31584c20)}
+@media(max-width:760px){
+ .hero-scroll{height:430vh}
+ .hero-stage{top:72px;height:calc(100vh - 72px);overflow:hidden}
+ .hero{padding:0 20px;display:block}
+ .hero-copy{transform:none;padding-top:5vh}
+ .art-card{height:58vh;min-height:350px;margin-top:10px}
+ .globe-wrap{left:54%;width:108vw}
+ .globe-halo{left:54%;width:100vw}
+ .chapter-card{left:4%;bottom:8%;width:74%}
+ .art-label{left:4%;right:4%;top:4%}
+ .globe-caption{right:4%;top:4%}
+ .art-copy{left:4%;bottom:4%}.art-scroll{right:4%;bottom:4%}
+}
