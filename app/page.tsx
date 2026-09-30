@@ -27,25 +27,60 @@ const modeInfo={
 };
 
 function Figure(){
- return <svg className="figure-art" viewBox="0 0 520 620" aria-hidden="true">
-   <defs>
-    <linearGradient id="stone" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#d4aaa1"/><stop offset=".38" stopColor="#8c5e59"/><stop offset=".72" stopColor="#4a2829"/><stop offset="1" stopColor="#160f11"/></linearGradient>
-    <linearGradient id="light" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stopColor="#f3d0c7" stopOpacity=".75"/><stop offset="1" stopColor="#6b3b39" stopOpacity="0"/></linearGradient>
-    <filter id="soft"><feGaussianBlur stdDeviation="7"/></filter>
-   </defs>
-   <ellipse cx="270" cy="585" rx="180" ry="25" fill="#000" opacity=".45" filter="url(#soft)"/>
-   <path d="M190 600 C185 545 184 500 199 454 C211 419 231 394 254 374 L315 374 C340 397 361 425 373 462 C389 511 385 558 382 600Z" fill="url(#stone)"/>
-   <path d="M207 449 C164 432 132 414 111 383 C96 361 91 335 103 319 C111 308 125 308 136 320 L194 378 L231 403Z" fill="url(#stone)"/>
-   <path d="M329 449 C373 431 405 412 426 383 C441 361 445 335 434 319 C426 308 412 308 401 320 L343 378 L306 403Z" fill="url(#stone)"/>
-   <path d="M222 397 C235 373 244 350 244 321 L244 278 L315 278 L315 321 C315 350 325 373 339 397 C320 416 241 416 222 397Z" fill="url(#stone)"/>
-   <path d="M244 285 C222 265 211 233 215 191 C218 151 239 119 275 116 C311 113 334 143 338 183 C342 229 330 265 307 286 C291 298 260 299 244 285Z" fill="url(#stone)"/>
-   <path d="M228 183 C236 139 262 119 291 123 C317 126 331 148 337 177 C321 161 306 153 286 153 C264 153 246 163 228 183Z" fill="#2b191a" opacity=".8"/>
-   <path d="M264 188 C273 181 282 181 290 188 L286 193 L270 193Z" fill="#1a1011"/>
-   <path d="M248 220 C264 230 286 232 304 220 C297 244 257 245 248 220Z" fill="#381e20"/>
-   <path d="M245 320 C269 337 292 338 316 320 L314 363 C291 376 268 376 246 363Z" fill="#5a3433"/>
-   <path d="M225 405 C246 421 299 424 332 405 L353 482 C320 462 242 462 207 482Z" fill="#c28f88" opacity=".3"/>
-   <path d="M211 454 C240 474 307 479 351 454" fill="none" stroke="url(#light)" strokeWidth="18" opacity=".55"/>
- </svg>
+ return <div className="planet-art" aria-hidden="true">
+   <svg viewBox="0 0 620 620" className="earth-svg">
+    <defs>
+      <radialGradient id="ocean" cx="36%" cy="28%">
+        <stop offset="0" stopColor="#2de4e8"/><stop offset=".3" stopColor="#118acb"/><stop offset=".7" stopColor="#07549c"/><stop offset="1" stopColor="#031b50"/>
+      </radialGradient>
+      <linearGradient id="land" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stopColor="#9ee95d"/><stop offset=".45" stopColor="#21a84c"/><stop offset="1" stopColor="#08723d"/>
+      </linearGradient>
+      <linearGradient id="land2" x1="1" y1="0" x2="0" y2="1">
+        <stop offset="0" stopColor="#d0ee65"/><stop offset=".5" stopColor="#38b94d"/><stop offset="1" stopColor="#087b56"/>
+      </linearGradient>
+      <filter id="blur12"><feGaussianBlur stdDeviation="12"/></filter>
+      <filter id="blur5"><feGaussianBlur stdDeviation="5"/></filter>
+      <clipPath id="earthClip"><circle cx="310" cy="310" r="245"/></clipPath>
+    </defs>
+
+    <circle cx="310" cy="310" r="260" fill="#22dce4" opacity=".13" filter="url(#blur12)"/>
+    <circle cx="310" cy="310" r="249" fill="url(#ocean)"/>
+    <g clipPath="url(#earthClip)">
+      <ellipse cx="205" cy="170" rx="160" ry="105" fill="#42d9e8" opacity=".18" filter="url(#blur12)"/>
+      <path className="land land-a" d="M92 183 C126 119 181 104 227 128 C247 139 261 166 247 189 C228 220 193 215 177 240 C157 270 119 251 105 226 C94 208 88 198 92 183Z" fill="url(#land)"/>
+      <path className="land land-b" d="M310 89 C354 68 415 85 441 119 C459 143 451 173 425 184 C402 193 391 218 359 222 C328 226 300 204 294 178 C289 147 287 106 310 89Z" fill="url(#land2)"/>
+      <path className="land land-c" d="M419 244 C463 222 512 244 533 282 C547 308 527 334 498 337 C472 340 456 365 428 354 C402 343 391 314 397 288 C401 271 405 253 419 244Z" fill="url(#land)"/>
+      <path className="land land-d" d="M190 315 C219 286 259 291 279 320 C296 345 287 379 266 397 C247 414 244 449 214 451 C183 453 162 424 166 393 C169 362 171 335 190 315Z" fill="url(#land2)"/>
+      <path className="land land-e" d="M324 388 C356 359 401 366 421 394 C440 421 431 454 403 468 C379 480 359 510 329 499 C297 488 290 449 298 425 C303 409 311 399 324 388Z" fill="url(#land)"/>
+
+      <g className="cloud-cloud cloud-1">
+        <path d="M42 260 C95 215 141 231 160 263 C185 247 220 253 229 282 C244 320 195 334 151 321 C105 343 53 322 42 292 C35 279 35 269 42 260Z" fill="#b9fff4" opacity=".78"/>
+        <path d="M20 288 C71 265 117 274 147 300 C177 326 143 350 105 343 C70 358 25 337 20 310Z" fill="#58ddd9" opacity=".68"/>
+      </g>
+      <g className="cloud-cloud cloud-2">
+        <path d="M285 246 C330 213 366 225 382 252 C410 233 448 246 452 276 C458 310 420 322 384 309 C350 332 305 314 296 287 C287 274 281 259 285 246Z" fill="#c5fff5" opacity=".72"/>
+      </g>
+      <g className="cloud-cloud cloud-3">
+        <path d="M150 458 C187 425 228 434 242 462 C266 446 302 456 309 484 C315 517 280 529 247 518 C214 538 172 524 162 498 C150 489 146 472 150 458Z" fill="#7ff1e6" opacity=".72"/>
+      </g>
+      <g className="cloud-cloud cloud-4">
+        <path d="M390 105 C421 82 456 91 466 115 C489 100 518 111 520 136 C523 164 494 174 468 163 C443 179 407 169 401 147 C390 137 386 119 390 105Z" fill="#8af4e8" opacity=".66"/>
+      </g>
+
+      <g className="swirl-lines" fill="none" strokeLinecap="round">
+        <path d="M61 163 C170 72 305 96 348 178 C382 244 324 296 241 283 C154 269 121 333 186 382 C258 436 370 414 444 352" stroke="#76fff0" strokeWidth="13" opacity=".34"/>
+        <path d="M71 386 C142 329 218 348 244 404 C267 453 339 478 407 438 C452 411 488 373 520 385" stroke="#44e9e2" strokeWidth="10" opacity=".4"/>
+        <path d="M120 125 C189 81 273 112 280 170 C286 221 238 245 192 228 C151 213 125 235 132 266" stroke="#c2fff6" strokeWidth="8" opacity=".34"/>
+        <path d="M355 82 C303 126 310 184 357 203 C405 223 438 205 462 177" stroke="#72fff0" strokeWidth="11" opacity=".3"/>
+      </g>
+    </g>
+    <circle cx="310" cy="310" r="246" fill="none" stroke="#5ff8ef" strokeWidth="5" opacity=".3"/>
+    <circle cx="310" cy="310" r="253" fill="none" stroke="#38dce8" strokeWidth="1.5" opacity=".65"/>
+    <ellipse cx="265" cy="205" rx="150" ry="70" fill="#fff" opacity=".08" filter="url(#blur12)"/>
+   </svg>
+   <span className="planet-star s1"/><span className="planet-star s2"/><span className="planet-star s3"/><span className="planet-star s4"/>
+ </div>
 }
 
 export default function Home(){
